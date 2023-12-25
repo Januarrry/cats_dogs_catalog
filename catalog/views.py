@@ -4,14 +4,6 @@ from django.shortcuts import redirect, render
 from django.utils import timezone
 from .models import Cat, Dog, Feedback
 
-def feedback(request):
-    """
-    Renders the feedback form page.
-
-    URL: /catalog/feedback/
-    """
-    return render(request, "catalog/feedback.html")
-    
 def index(request):
     """
     Renders the index page with a list of cats and dogs.
@@ -24,6 +16,15 @@ def index(request):
         "cat_list": cat_list, "dog_list": dog_list
     }
     return render(request, "catalog/index.html", context)
+
+def feedback(request):
+    """
+    Renders the feedback form page.
+
+    URL: /catalog/feedback/
+    """
+    return render(request, "catalog/feedback.html")
+    
 
 def feedback_success(request):
     """
@@ -59,3 +60,4 @@ def feedback_submit(request):
     else:
         # Handle non-POST requests appropriately
         return redirect('/catalog/feedback/')
+
