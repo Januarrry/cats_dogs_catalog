@@ -1,7 +1,98 @@
-li a {
-    color: purple;
+/* Reset some default styles for better consistency */
+body,
+ul,
+li,
+p,
+h2 {
+    margin: 0;
+    padding: 0;
 }
 
+/* Set a grey background for the entire page */
 body {
-    background-color: orange;
+    background-color: #2c616b;
+}
+
+/* Apply a simple style to the list items */
+.card-list {
+    list-style: none;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow items to wrap to the next line */
+    justify-content: space-between;
+    /* Adjust the spacing between items */
+}
+
+/* Style the card container */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin-bottom: 10px;
+    /* Adjust the spacing between cards */
+    width: 100%;
+    /* Take full width on smaller screens */
+    background-color: #fff;
+    /* Set card background to white */
+}
+
+/* Add a hover effect to the card */
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Style the images within the card */
+img {
+    width: 100%;
+    height: 150px;
+    /* Set a fixed height for all images */
+    object-fit: cover;
+    /* Cover the entire space while maintaining aspect ratio */
+}
+
+/* Style the card content */
+.card-content {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Style the card text */
+.card-text {
+    margin-top: 10px;
+    /* Add space between image and text */
+}
+
+/* Make the list items responsive */
+@media (min-width: 768px) {
+    .card {
+        width: 300px;
+    }
+}
+
+/* Style the "Add feedback" link */
+a.feedback-link {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #3498db;
+    /* Change this to your desired color */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+a.feedback-link:hover {
+    background-color: #2980b9;
+    /* Change this to your desired hover color */
+}
+
+/* Add content padding to the whole page */
+.content {
+    padding: 20px;
 }

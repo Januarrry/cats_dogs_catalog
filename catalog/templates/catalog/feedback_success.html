@@ -1,2 +1,41 @@
-Form submitted succesfully
-<a href="{% url 'catalog:index' %}">Go to catalog</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission Success</title>
+    <style>
+        body {
+            background-color: #2c616b;
+            text-align: center;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .success-message {
+            margin-top: 100px;
+            font-size: 24px;
+        }
+
+        .go-to-catalog {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .go-to-catalog:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-message">
+        <p>Form submitted successfully</p>
+        <a href="{% url 'catalog:index' %}" class="go-to-catalog">Go to catalog</a>
+    </div>
+</body>
+</html>

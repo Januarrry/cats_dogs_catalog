@@ -2,31 +2,38 @@
 
 <link rel="stylesheet" href="{% static 'catalog/style.css' %}">
 
+<div class="content">
+    {% if cat_list %}
+        <h2>Cats</h2>
+        <ul class="card-list">
+            {% for cat in cat_list %}
+                <li class="card">
+                    <div class="card-content">
+                        <img src="{{ cat.image_url }}" alt="{{ cat.name }}" />
+                        <p class="card-text">{{ cat.name }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No cats are available.</p>
+    {% endif %}
 
-{% if cat_list %}
-    <ul>
-    {% for cat in cat_list %}
-    <li>
-        <img src="{{ cat.image_url }}" width="130" height="80" />
-        {{ cat.name }}
-    </li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No cats are available.</p>
-{% endif %}
+    {% if dog_list %}
+        <h2>Dogs</h2>
+        <ul class="card-list">
+            {% for dog in dog_list %}
+                <li class="card">
+                    <div class="card-content">
+                        <img src="{{ dog.image_url }}" alt="{{ dog.name }}" />
+                        <p class="card-text">{{ dog.name }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No dogs are available.</p>
+    {% endif %}
 
-{% if dog_list %}
-    <ul>
-    {% for dog in dog_list %}
-    <li>
-        <img src="{{ dog.image_url }}" width="130" height="80" />
-        {{ dog.name }}
-    </li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No dogs are available.</p>
-{% endif %}
-
-<a href="{% url 'catalog:feedback' %}">Add feedback</a>
+    <a href="{% url 'catalog:feedback' %}" class="feedback-link">Add feedback</a>
+</div>
