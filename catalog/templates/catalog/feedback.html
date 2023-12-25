@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Input Form</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Contact Us</h1>
+ 
+    <form id="contactForm" action="{% url 'catalog:feedback_submit' %}" method="post" onsubmit="return validateForm()">
+        {% csrf_token %}
+        <!-- Name input -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" >
+
+        <!-- Email input -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" >
+
+        <!-- Message input -->
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" ></textarea>
+
+        <!-- Error messages -->
+        <p id="nameError" class="error"></p>
+        <p id="emailError" class="error"></p>
+        <p id="messageError" class="error"></p>
+
+        <!-- Submit button -->
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("message").value;
+
+            // Reset error messages
+            document.getElementById("nameError").innerHTML = "";
+            document.getElementById("emailError").innerHTML = "";
+            document.getElementById("messageError").innerHTML = "";
+
+            let valid = true
+            // Validate name
+            if (name === "") {
+                document.getElementById("nameError").innerHTML = "Name is required";
+                valid = false;
+            }
+
+            // Validate email
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById("emailError").innerHTML = "Invalid email format";
+                valid = false;
+            }
+
+            // Validate message
+            if (message === "") {
+                document.getElementById("messageError").innerHTML = "Message is required";
+                valid = false;
+            }
+
+            return valid;
+        }
+    </script>
+
+</body>
+</html>
