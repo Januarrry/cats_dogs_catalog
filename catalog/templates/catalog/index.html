@@ -1,0 +1,30 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'catalog/style.css' %}">
+
+
+{% if cat_list %}
+    <ul>
+    {% for cat in cat_list %}
+    <li>
+        <img src="{{ cat.image_url }}" width="130" height="80" />
+        {{ cat.name }}
+    </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No cats are available.</p>
+{% endif %}
+
+{% if dog_list %}
+    <ul>
+    {% for dog in dog_list %}
+    <li>
+        <img src="{{ dog.image_url }}" width="130" height="80" />
+        {{ dog.name }}
+    </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No dogs are available.</p>
+{% endif %}
